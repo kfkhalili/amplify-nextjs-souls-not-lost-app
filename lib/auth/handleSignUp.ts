@@ -4,7 +4,6 @@ type SignUpParameters = {
   username: string;
   password: string;
   email: string;
-  phone_number: string;
 };
 
 export default async function handleSignUp({
