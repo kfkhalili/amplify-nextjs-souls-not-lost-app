@@ -1,3 +1,4 @@
+// amplify/auth/resource.ts
 import { defineAuth } from '@aws-amplify/backend';
 
 /**
@@ -7,7 +8,13 @@ import { defineAuth } from '@aws-amplify/backend';
  */
 export const auth = defineAuth({
   loginWith: {
-    email: true,
+    email: {
+      verificationEmailStyle: "LINK",
+      verificationEmailBody: (link: string) =>
+        `Welcome to Souls Not Lost. 
+         Click the link to verify: ${link}.`,
+      verificationEmailSubject: "Souls Not Lost Verification Email",
+    },
     // add social providers
     externalProviders: {
       /**
